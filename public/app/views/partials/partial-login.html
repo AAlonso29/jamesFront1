@@ -1,0 +1,96 @@
+<!-- <form class="form-auth">  
+    <h2 class="form-auth-heading">Login</h2>
+
+    <div class="alert alert-danger" ng-if="lc.loginError" role="alert">{{ lc.loginErrorMessage }}</div>
+
+    <label for="inputnombreUsuario" class="sr-only">nombreUsuario</label>
+    <input type="text" id="inputnombreUsuario" ng-model="lc.nombreUsuario" class="form-control" placeholder="nombreUsuario" required autofocus>
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" ng-model="lc.password" class="form-control" placeholder="Password" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="lc.login()">Login</button>
+</form>   -->
+
+
+<div id="loginForm">
+	<style>
+      .container {
+        width: 100% !important;
+        padding: 0px !important;
+        margin: 0px !important;
+        /*margin: 20% auto;*/
+      }
+      .centrar
+      	{
+      		position: absolute;
+      		top:50%;
+      		left:50%;
+      		width:300px;
+      		margin-left:-150px;
+      		margin-top:-150px;
+      	}
+
+        .box-shadow {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .login {
+          width: 100%;
+          font-size: 30px;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .footer_copy {
+          color : #555;
+          line-height: 3;
+          font-family: arial;
+          font-weight: 100;
+          font-size: 11px;
+        }
+
+        .footer_text {
+          display: block;
+          text-align: center;
+          color : #555;
+          font-size: 15px;
+        }
+
+    </style>
+  <body>
+    
+      
+        
+        <div class="centrar">
+        		<form class="form-auth">
+
+          <div class="panel panel-default box-shadow">
+            <div class="panel-body" style="background:none; text-align:center;">
+              <label class="login" for=""><img src="/imagen/LogoTT-2.png" style="display:inline; text-align: center;" width="60%" alt=""></label>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                  <input type="text"  ng-model= 'lc.nombreUsuario' id="inputnombreUsuario" class="form-control" placeholder="Correo" aria-describedby="basic-addon2" required autofocus>
+                </div>
+                <br/>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                  <input type="password" id="inputPassword"  ng-model= "lc.password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon2" required>
+                </div>
+                <br/>
+                            </form>
+
+                <button id="submit" type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="lc.login()" class="btn btn-primary" >INGRESAR</button>
+                <label class="footer_copy" for="">Todos los derechos reservados @brechadigital 2017</label>
+                <img src="/imagen/logo-brecha.png" width="40%" style="margin-bottom:10px;" alt="">
+                <label class="footer_text" for="">"Lo que no se puede medir, no se puede mejorar"</label>
+            </div>
+          </div>
+
+     
+   
+    
+
+   </body>
+
+</div>
