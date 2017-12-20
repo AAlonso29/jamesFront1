@@ -12,19 +12,18 @@ module.exports = new Sequelize(
 
 var Empresa = require('../models/empresa');
 var General_kpi = require('../models/general_kpi');
-
 var Usr_cliente = require('../models/usr_cliente');
 
 //creando las llaves foraneas
 Usr_cliente.belongsTo(Empresa);
 Empresa.hasMany(Usr_cliente);
 
-var User = require('../models/user');
-var Perfil = require('../models/perfil');
+// var User = require('../models/user');
+// var Perfil = require('../models/perfil');
 
-User.belongsTo(Perfil);
-Perfil.hasMany(User);
 
+// User.belongsTo(Perfil);
+// Perfil.hasMany(User);
 
 
 

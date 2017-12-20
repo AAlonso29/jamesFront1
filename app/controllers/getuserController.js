@@ -28,7 +28,8 @@ var GetuserController = {
                     avatarUsuario: req.body.avatarUsuario,
                     password: req.body.password,
                     telefonoMovil: req.body.telefonoMovil,
-                    telefonoFijo: req.body.telefonoFijo
+                    telefonoFijo: req.body.telefonoFijo,
+                    
                 };
     
                 return User.create(newUser).then(function() {

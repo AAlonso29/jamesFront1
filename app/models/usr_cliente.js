@@ -52,7 +52,7 @@ var modelusr_cliente = {
     empresaId: {
         type: Sequelize.INTEGER,
         allowNull: false,        
-    }
+    },
 };
 
 // 2: The model options.

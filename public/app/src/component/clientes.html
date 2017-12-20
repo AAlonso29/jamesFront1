@@ -143,7 +143,7 @@
       <table id="table-datos" class="table">
           <thead>
               <tr class="bg-success">
-              <th>ID</th>
+              <!-- <th>ID</th> -->
               <th>Nombre</th>
               <th>Apellido paterno</th>
               <th>Apellido materno</th>
@@ -152,20 +152,22 @@
               <th>Telefono movil</th>
               <th>Fecha creacion</th>
               <th>Empresa asociada</th>
+              <th> <img src="../app/src/imagen/male.jpg" alt="editar" width="10%"> </th>
               </tr>
           </thead>
           <tbody>
       <!-- Display records -->
             <tr ng-repeat="datosC in DatosC">
-            <td>{{datosC.idCliente}}</td>
+            <!-- <td>{{datosC.idCliente}}</td> -->
             <td>{{datosC.nombreCliente}}</td>
             <td>{{datosC.apellidoPCliente}}</td>
             <td>{{datosC.apellidoMCliente}}</td>
             <td>{{datosC.emailCliente}}</td>
             <td>{{datosC.telefonoFijoCliente}}</td>
             <td>{{datosC.telefonoMovilCliente}}</td>
-            <td>{{datosC.fechaCreacion}}</td>
-            <td>{{datosC.empresa_idempresa}}</td>
+            <td>{{datosC.createdAt}}</td>
+            <td>{{ datosC.empresa.nombreEmpresa }}</td>
+            <td> <a href="">Editar </a> - <a style="color:red" href="">Borrar </a></td>
             </tr>
           </tbody>
       </table>

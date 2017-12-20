@@ -51,10 +51,7 @@ var modelDefinition = {
         defaultValue: config.userRoles.user
     },
 
-    perfilId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,        
-    }
+     
     
 };
 

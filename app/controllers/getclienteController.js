@@ -1,14 +1,20 @@
 'use strict';
 
+
+
 var db = require('../services/database'),
-    usr_Cliente = require('../models/usr_cliente');
+    Sequelize = require('sequelize'),
+    usr_Cliente = require('../models/usr_cliente'),
+    Empresa = require('../models/empresa');
+    
+    const Op = Sequelize.Op;
 
 // Metodo buscar todo models usr_cliente.
 var Getusr_clienteController = {
     index: function(req, res) {
         var datosC = '';
         db.sync().then(function(){
-            usr_Cliente.findAll({ raw: true}).then(function(usr_clientes){
+            usr_Cliente.findAll({ where: {}, include: [Empresa]}).then(function(usr_clientes){
                 this.datosC = usr_clientes;
                 res.status(200).send(this.datosC);
             });
@@ -29,7 +35,7 @@ var Getusr_clienteController = {
                     telefonoFijoCliente: req.body.telefonoFijoCliente,
                     telefonoMovilCliente: req.body.telefonoMovilCliente,
                     password: req.body.password,
-                    empresaId: req.body.empresaId
+                    empresaId: req.body.empresaId,
                 };
                 
                 return usr_Cliente.create(newusr_Cliente).then(function() {
@@ -40,7 +46,9 @@ var Getusr_clienteController = {
                 res.status(403).json({ message: 'El cliente ya existe!' });
             });
         }
-    }
+    },
+
+     
 };
 
 
