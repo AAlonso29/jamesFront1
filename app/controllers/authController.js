@@ -26,6 +26,11 @@ AuthController.authenticateUser = function(req, res) {
             } else {
                 user.comparePasswords(password, function(error, isMatch) {
                     if(isMatch && !error) {
+                        // var nombreUsuario = jwt.sign(
+                        //     { nombreUsuario: user.nombreUsuario},
+                        //     config.keys.secret,
+                        //     {expiresIn: '30m'}
+                        // );
                         var token = jwt.sign(
                             { nombreUsuario: user.nombreUsuario },
                             config.keys.secret,
@@ -35,6 +40,7 @@ AuthController.authenticateUser = function(req, res) {
                         res.json({
                             success: true,
                             token: 'JWT ' + token,
+                            nombreUsuario:  'JWT ' + nombreUsuario,                            
                             role: user.role
                         });
                     } else {
@@ -49,3 +55,5 @@ AuthController.authenticateUser = function(req, res) {
 }
 
 module.exports = AuthController;
+
+// %7B%22role%22%3A4%2C%22token%22%3A%22JWT%20eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmVVc3VhcmlvIjoiYWRtaW4iLCJpYXQiOjE1MTM4MDQ1NDgsImV4cCI6MTUxMzgwNjM0OH0.tryZOVaYdJUtdrTLOoKd1nATH3d8C0c0aXTqxv6Bs1o%22%7D

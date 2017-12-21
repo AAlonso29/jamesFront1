@@ -34,7 +34,39 @@ var GetempresaController = {
                 res.status(403).json({ message: 'La empresa ya existe!' });
             });
        }
-    }
+    },
+
+    //Metodo Borrar Empresa 
+    borrar: function(req, res) {
+        console.log('hola');
+        // var idempresa = '';
+        db.sync().then(function(){
+            console.log(req.body);
+            var id = req.body.id;
+            Empresa.destroy({ where: {'id': id}}).then(function(empresas){
+                res.status(200).send('la empresa con el id '+id+ ' ha sido borrada ' );
+            });
+            
+        })
+    },
+
+    //Metodo Editar Empresa
+    editar: function(req, res) {
+        console.log('hola');
+        var userID = req.params.id;
+        var update = req.body;
+        // if(userID != req.update.id){
+        //     return res.status(500).send({message: 'Error'});
+        // } else{
+            Empresa.update({
+                'nombreEmpresa': req.body.nombreEmpresa,
+              }, {
+                where: {
+                  'id' : userID
+                }
+              });
+              return res.status(200).send({message: 'Dato modificado.'});
+    }  
 };
 
 

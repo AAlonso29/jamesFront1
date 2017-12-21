@@ -47,7 +47,57 @@ var Getgeneral_kpiController = {
             console.log(error);
             res.status(403).json({ message: 'ya existe!' });
         });
-    }
+    },
+
+      //Metodo Borrar KPi 
+      borrar: function(req, res) {
+        console.log('hola');
+        // var idempresa = '';
+        db.sync().then(function(){
+            console.log(req.body);
+            var id = req.body.id;
+            General_kpi.destroy({ where: {'id': id}}).then(function(general_kpis){
+                res.status(200).send('el Kpi con el id '+id+ ' ha sido borrado ' );
+            });
+            
+        })
+    },
+
+    //Metodo Editar KPi
+    editar: function(req, res) {
+        console.log('hola');
+        var userID = req.params.id;
+        var update = req.body;
+        // if(userID != req.update.id){
+        //     return res.status(500).send({message: 'Error'});
+        // } else{
+            Empresa.update({
+                'fans': req.body.fans,
+                // 'alcance': req.body.alcance,
+                // 'impresiones': req.body.impresiones,
+                // 'interacciones': req.body.interacciones,
+                // 'publicaciones': req.body.publicaciones,
+                // 'followers': req.body.followers,
+                // 'reach': req.body.reach,
+                // 'impressions': req.body.impressions,
+                // 'contribuidores': req.body.contribuidores,
+                // 'twettGenerados': req.body.twettGenerados,
+                // 'retweets': req.body.retweets,
+                // 'respuestas': req.body.respuestas,
+                // 'menciones': req.body.menciones,
+                // 'visitas': req.body.visitas,
+                // 'rebote': req.body.rebote,
+                // 'permanencia': req.body.permanencia,
+                // 'nombreTipoMedio': req.body.nombreTipoMedio,
+                // 'fechaInicio': req.body.fechaInicio,
+                // 'fechaFinal': req.body.fechaFinal
+              }, {
+                where: {
+                  'id' : userID
+                }
+              });
+              return res.status(200).send({message: 'Dato modificado.'});
+    }  
 };
 
 

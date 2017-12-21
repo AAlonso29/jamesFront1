@@ -29,7 +29,20 @@ var APIRoutes = function(passport) {
     router.get('/admin/getuser', GetuserController.index);
     router.get('/admin/getcliente', Getusr_clienteController.index);
     router.get('/admin/getempresa', GetempresaController.index);
-    router.get('/admin/getkpicl', Getgeneral_kpiController.index);
+    router.get('/admin/getkpi', Getgeneral_kpiController.index);
+
+    //DELETE Routes.
+
+    router.delete('/admin/getempresa', GetempresaController.borrar);
+    router.delete('/admin/getuser', GetuserController.borrar);
+    router.delete('/admin/getcliente', GetempresaController.borrar);
+    router.delete('/admin/getkpi', Getgeneral_kpiController.borrar);
+
+    //PUT Routes.
+    router.put('/admin/getempresa/:id', GetempresaController.editar);
+    router.put('/admin/getuser/:id', GetuserController.editar);
+    router.put('/admin/getusr_cliente/:id', Getusr_clienteController.editar);
+    router.put('/amdin/getkpi/:id', Getgeneral_kpiController.editar);
 
     return router;
 };

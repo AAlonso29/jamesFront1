@@ -48,6 +48,45 @@ var Getusr_clienteController = {
         }
     },
 
+      //Metodo Borrar Cliente 
+      borrar: function(req, res) {
+        console.log('hola');
+        // var idempresa = '';
+        db.sync().then(function(){
+            console.log(req.body);
+            var id = req.body.id;
+            usr_Cliente.destroy({ where: {'id': id}}).then(function(usr_clientes){
+                res.status(200).send('el cliente con el id '+id+ ' ha sido borrado ' );
+            });
+            
+        })
+    },
+
+    //Metodo Editar Cliente
+    editar: function(req, res) {
+        console.log('hola');
+        var userID = req.params.id;
+        var update = req.body;
+        // if(userID != req.update.id){
+        //     return res.status(500).send({message: 'Error'});
+        // } else{
+            usr_Cliente.update({
+                'nombreCliente': req.body.nombreCliente,
+                // 'apellidoPCliente': req.body.apellidoPCliente,
+                // 'apellidoMCliente': req.body.apellidoMCliente,
+                // 'emailCliente': req.body.emailCliente,
+                // 'telefonoFijoCliente': req.body.telefonoFijoCliente,
+                // 'telefonoMovilCliente': req.body.telefonoMovilCliente,
+                // 'password': req.body.password,
+                // 'empresaId': req.body.empresaId
+              }, {
+                where: {
+                  'id' : userID
+                }
+              });
+              return res.status(200).send({message: 'Dato modificado.'});
+    }  
+
      
 };
 

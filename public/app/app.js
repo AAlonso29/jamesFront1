@@ -110,7 +110,9 @@
             }
             });
 
-             //admin option area.
+//-------------------------------------------------------------------------------------------------------------------------
+
+             //opcion agregar empresa.
         $stateProvider.state('adminAgregarE',{
             url: '/admin/empresa',
             templateUrl: 'app/src/component/formularioEmpresa.html',
@@ -121,7 +123,7 @@
             }
             });
 
-             //admin option area.
+             //opcion ver empresas.
         $stateProvider.state('adminVisualizarE',{
             url: '/admin/getempresa',
             templateUrl: 'app/src/component/empresas.html',
@@ -132,7 +134,31 @@
             }
             });
 
-             //admin option area.
+            //opcion eliminar empresa
+            $stateProvider.state('adminBorrarE',{
+                url: '/admin/getempresa/',
+                templateUrl: 'app/src/component/empresas.html',
+                controller: 'DeleteempresaController as dec',
+                data: {
+                    accessLevel: staticData.accessLevels.admin
+    
+                }
+            });
+
+            //opcion editar empresa
+                        //opcion eliminar empresa
+            $stateProvider.state('adminEditarE',{
+                    url: '/admin/getempresa/',
+                templateUrl: 'app/src/component/empresas.html',
+                controller: 'EditarempresaController as eec',
+                data: {
+                    accessLevel: staticData.accessLevels.admin
+                
+                }
+            });
+//--------------------------------------------------------------------------------------------
+
+             //opcion agregar cliente.
         $stateProvider.state('adminAgregarC',{
             url: '/admin/usr_cliente',
             templateUrl: 'app/src/component/formularioCliente.html',
@@ -143,7 +169,7 @@
             }
             });
 
-             //admin option area.
+             //opcion ver clientes.
         $stateProvider.state('adminVisualizarC',{
             url: '/admin/getcliente',
             templateUrl: 'app/src/component/clientes.html',
@@ -154,7 +180,29 @@
             }
             });
 
-             //admin option area.
+            //opcion borrar cliente
+            $stateProvider.state('adminBorrarC',{
+                url: '/admin/getcliente/',
+                templateUrl: 'app/src/component/clientes.html',
+                controller: 'Deleteusr_clienteController as dcc',
+                data: {
+                    accessLevel: staticData.accessLevels.admin
+    
+                }
+            });
+
+            //opcion Editar cliente
+            $stateProvider.state('adminEditarC',{
+                url: '/admin/getcliente/',
+                templateUrl: 'app/src/component/clientes.html',
+                controller: 'Editarusr_clienteController as ecc',
+                data: {
+                    accessLevel: staticData.accessLevels.admin
+    
+                }
+            });
+//---------------------------------------------------------------------------------------------------------------
+             //opcion agregar usuario.
         $stateProvider.state('adminAgregarU',{
             url: '/admin/signup',
             templateUrl: 'app/src/component/formulariousuario.html',
@@ -165,7 +213,7 @@
             }
             });
 
-             //admin option area.
+             //opcion ver usuarios.
         $stateProvider.state('adminVisualizarU',{
             url: '/admin/getuser',
             templateUrl: 'app/src/component/usuarios.html',
@@ -176,6 +224,32 @@
             }
             });
 
+            //opcion borrar usuario
+            $stateProvider.state('adminBorrarU',{
+                url: '/admin/getuser',
+                templateUrl: 'app/src/component/usuarios.html',
+                controller: 'DeleteuserController as duc',
+                data: {
+                    accessLevel: staticData.accessLevels.admin
+    
+                }
+            });
+
+            //opcion editar usuario
+            $stateProvider.state('adminEditarU',{
+                url: '/admin/getuser',
+                templateUrl: 'app/src/component/usuarios.html',
+                controller: 'EditaruserController as euc',
+                data: {
+                    accessLevel: staticData.accessLevels.admin
+    
+                }
+            });
+
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+        //opcion para guardar datos para KPI
         $stateProvider.state('general_kpi', {
             url: '/general_kpi',
             templateUrl: 'app/src/component/formularioKpi.html',
@@ -184,6 +258,38 @@
                 accessLevel: staticData.accessLevels.user 
             }
         }); 
+        
+        //opcion para ver datos generales de KPI
+        $stateProvider.state('getgeneral_kpi', {
+            url: '/getkpi',
+            templateUrl: 'app/src/component/formularioKpi.html',
+            controller: 'Getgeneral_kpiController as ggc',
+            data: {
+                accessLevel: staticData.accessLevels.user 
+            }
+        });
+
+        //opcion para eliminar datos para guardado de KPI 
+        $stateProvider.state('Borrargeneral_kpi', {
+            url: '/getkpi',
+            templateUrl: 'app/src/component/formularioKpi.html',
+            controller: 'DeletekpiController as dgc',
+            data: {
+                accessLevel: staticData.accessLevels.user 
+            }
+        });
+
+          //opcion para editar datos para guardado de KPI 
+          $stateProvider.state('editargeneral_kpi', {
+            url: '/getkpi',
+            templateUrl: 'app/src/component/formularioKpi.html',
+            controller: 'EditarkpiController as egc',
+            data: {
+                accessLevel: staticData.accessLevels.user 
+            }
+        });
+
+//----------------------------------------------------------------------------------------------------------------------------
 
         $locationProvider.html5Mode(true);
         $httpProvider.interceptors.push('requestInterceptor');
