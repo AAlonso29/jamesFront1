@@ -112,6 +112,18 @@
 
 //-------------------------------------------------------------------------------------------------------------------------
 
+            //OPcion ver perfil
+            $stateProvider.state('adminVisualizarP',{
+                url: '/admin/getperfil',
+                templateUrl: 'app/src/component/perfil.html',
+                controller: 'GetperfilController as gpc',
+                data: {
+                    accessLevel: staticData.accessLevels.admin
+    
+                }
+            });
+
+//----------------------------------------------------------------------------------------------------------------------------
              //opcion agregar empresa.
         $stateProvider.state('adminAgregarE',{
             url: '/admin/empresa',

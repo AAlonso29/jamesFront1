@@ -135,32 +135,36 @@
    <!--FIN NAVEGADOR-->
   
    <!--CUERPO-->
-    <div id="base-container" ng-app="relleno" class="container-fluid" >
-        <body ng-app="main"> 
-            
-      <div ng-controller="userCtrl">
-     
-      <table id="table-datos" class="table" >
-     <thead>
-      <tr class="bg-success">
-      <th>ID </th>
-      <th>Perfiles</th>
-     
-      </tr>
-    </thead>
-      <!-- Display records -->
+   <div id="base-container" ng-app="relleno" class="container-fluid" >
+    <body ng-app="main"> 
+        
+  <div >
+ 
+  <table id="table-datos" class="table">
+      <thead>
+        <tr class="bg-success">
+        <th>ID</th>
+        <th>Nombre de la perfil</th>
+        <th>Fecha de creacion</th>
+        <th>Fecha modificacion</th>
+ 
+        </tr>
+      </thead>
       <tbody>
-      <tr ng-repeat="user in users">
-      <td>{{user.idPerfil}}</td>
-      <td>{{user.nombrePerfil}}</td>
-      </tr>
+  
+        <tr ng-repeat="datos in DatosP">
+        <td>{{datos.id}}</td>
+        <td>{{datos.nombrePerfil}}</td>
+        <td>{{datos.createdAt}}</td>
+        <td>{{datos.updatedAt}}</td>
+        </tr>
     </tbody>
-      </table>
-      </div>
-    </div>
-    
-    
-    </div>
+  </table>
+  </div>
+</div>
+
+
+</div>
 
     <script>
             $("#menu-toggle").click(function(e) {

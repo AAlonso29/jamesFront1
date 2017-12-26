@@ -40,7 +40,7 @@
                       <div id="collapseTree" class="panel-collapse collapse">
                           <ul class="sub-menu">
                             <li>
-                              <a class="buttonMenu _title" data-target="#" ng-href="/perfil"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Perfiles</a>
+                              <a class="buttonMenu _title" data-target="#" ng-href="/admin/getperfil"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Perfiles</a>
                             </li>
                           </ul>
                         </div>
@@ -153,6 +153,7 @@
               <th>Fecha creacion</th>
               <th>Empresa asociada</th>
               <th> <img src="../app/src/imagen/male.jpg" alt="editar" width="10%"> </th>
+              <th> <img src="../app/src/imagen/male.jpg" alt="editar" width="10%"> </th>
               </tr>
           </thead>
           <tbody>
@@ -167,14 +168,67 @@
             <td>{{datosC.telefonoMovilCliente}}</td>
             <td>{{datosC.createdAt}}</td>
             <td>{{ datosC.empresa.nombreEmpresa }}</td>
-            <td> <a href="">Editar </a> - <a style="color:red" href="">Borrar </a></td>
+            <td><button class="btn btn-lg btn-primary btn-block" style="width:100%; background:#067221; border-color:#e20514;" type="submit" data-toggle="modal" data-target="#myModalEdit" ng-click="ecc.editarusr_clienteController()">Editar</button></td>
+            <td><button class="btn btn-lg btn-primary btn-block" style="width:100%; background:#a31c25; border-color:#e20514;" type="submit" ng-click="cc.usr_cliente()">Eliminar</button></td>
             </tr>
           </tbody>
       </table>
       </div>
     </div>
-    
-  
+<!-- .................................................................................... -->
+<div id="myModalEdit" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar cliente</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+		    <label for="inputnombreCliente" class="col-sm-2 control-label">Nombre </label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="inputnombreCliente" placeholder="Nombre" data-ng-value={{datosC.nombreCliente}} ng-model="datosC.nombreCliente">
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="inputapellidoPCliente" class="col-sm-2 control-label">Apellido paterno</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="inputapellidoPCliente" placeholder="Apellido paterno" ng-model="datosC.apellidoPCliente.email">
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="inputapellidoMCliente" class="col-sm-2 control-label">Apellido materno</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="inputapellidoMCliente" placeholder="apellido materno" ng-model="datosC.apellidoMCliente">
+		    </div>
+		  </div>
+		  			  
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ecc.editarusr_clienteController()">Done</button>
+		    </div>
+		  </div>
+		</form>
+      </div>
+      <div class="modal-footer">
+      	
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- .................................................................................... -->
+
+
     </div>
 
     <script>

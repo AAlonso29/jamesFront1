@@ -6,6 +6,7 @@ var config = require('../config'),
     allowOnly = require('../services/routesHelper').allowOnly,
     AuthController = require('../controllers/authController'),
     UserController = require('../controllers/userController'),
+    GetperfilController = require('../controllers/getperfilController'),
     GetuserController = require('../controllers/getuserController'),
     Getusr_clienteController = require('../controllers/getclienteController'),
     GetempresaController = require('../controllers/getempresaController'),
@@ -26,6 +27,7 @@ var APIRoutes = function(passport) {
     router.get('/admin/perfiles', passport.authenticate('jwt', { session: false }), allowOnly(config.accessLevels.admin, AdminController.index));
 
 
+    router.get('/admin/getperfil', GetperfilController.index);
     router.get('/admin/getuser', GetuserController.index);
     router.get('/admin/getcliente', Getusr_clienteController.index);
     router.get('/admin/getempresa', GetempresaController.index);
